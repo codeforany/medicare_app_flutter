@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Poppins",
         scaffoldBackgroundColor: TColor.bg,
-        appBarTheme: const AppBarTheme(
+        appBarTheme:  AppBarTheme(
           elevation: 0,
-          backgroundColor: Colors.transparent
+          backgroundColor: TColor.primary
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: TColor.primary),
         useMaterial3: false,
