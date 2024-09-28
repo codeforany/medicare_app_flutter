@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/login/on_boarding_screen.dart';
 
 class SelectCityScreen extends StatefulWidget {
   const SelectCityScreen({super.key});
@@ -111,6 +112,9 @@ class _SelectCityScreenState extends State<SelectCityScreen> {
                       setState(() {
                         selectIndex = index;
                       });
+
+                      context.push( OnBoardingScreen() );
+
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
