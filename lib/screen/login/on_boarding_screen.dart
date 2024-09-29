@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
-import 'package:medicare/main.dart';
+import 'package:medicare/screen/login/login_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -188,5 +188,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   //TODO: ACTION
   void actionNextScreen() {
     debugPrint("Last Page Screen Open");
+    context.push( const LoginScreen() );
   }
 }
