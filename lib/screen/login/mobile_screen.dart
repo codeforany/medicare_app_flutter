@@ -1,6 +1,7 @@
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/login/otp_screen.dart';
 
 class MobileScreen extends StatefulWidget {
   const MobileScreen({super.key});
@@ -129,7 +130,9 @@ class _MobileScreenState extends State<MobileScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    context.push( const OTPScreen() );
+                  },
                   child: Container(
                     width: double.maxFinite,
                     height: 40,
