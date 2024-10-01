@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/home/main_tab_screen.dart';
 import 'package:medicare/screen/login/mobile_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -110,7 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                context.push( const MainTabScreen() );
+              },
               child: Container(
                 width: double.maxFinite,
                 height: 45,
