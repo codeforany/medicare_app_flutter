@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/home/home_tab_screen.dart';
 
 class MainTabScreen extends StatefulWidget {
   const MainTabScreen({super.key});
@@ -79,10 +80,9 @@ class _MainTabScreenState extends State<MainTabScreen>
                     Text(
                       "Surat",
                       style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500
-                      ),
+                          color: TColor.primaryText,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500),
                     ),
                   ],
                 ),
@@ -111,7 +111,7 @@ class _MainTabScreenState extends State<MainTabScreen>
           ),
           Expanded(
             child: TabBarView(controller: controller, children: [
-              Container(),
+              const HomeTabScreen(),
               Container(),
               Container(),
             ]),
