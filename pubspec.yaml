@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   fl_country_code_picker: ^0.1.9+1
   flutter_otp_text_field: ^1.2.0
+  flutter_rating_stars: ^1.1.0
 
 dev_dependencies:
   flutter_test:
