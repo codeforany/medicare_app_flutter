@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/common_widget/menu_row.dart';
 import 'package:medicare/screen/home/home_tab_screen.dart';
 
 class MainTabScreen extends StatefulWidget {
@@ -13,6 +14,25 @@ class _MainTabScreenState extends State<MainTabScreen>
     with SingleTickerProviderStateMixin {
   late TabController controller;
   int selectTab = 0;
+  final GlobalKey<ScaffoldState> scaffoldStateKey = GlobalKey();
+
+  List menuArr = [
+    {'name': 'My Appointments', 'icon': 'assets/img/my_apo.png', 'action': '1'},
+    {
+      'name': 'New Appointment',
+      'icon': 'assets/img/new_app.png',
+      'action': '2'
+    },
+    {'name': 'Medical Records', 'icon': 'assets/img/recode.png', 'action': '3'},
+    {'name': 'Forum', 'icon': 'assets/img/forum.png', 'action': '4'},
+    {
+      'name': 'Account Settings',
+      'icon': 'assets/img/account_setting.png',
+      'action': '5'
+    },
+    {'name': 'Help', 'icon': 'assets/img/help.png', 'action': '6'},
+    {'name': 'Logout', 'icon': 'assets/img/logout.png', 'action': '7'}
+  ];
 
   @override
   void initState() {
@@ -37,10 +57,111 @@ class _MainTabScreenState extends State<MainTabScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldStateKey,
+      drawer: Drawer(
+        width: context.width * 0.78,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: TColor.primary,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+              ),
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              scaffoldStateKey.currentState?.closeDrawer();
+                            },
+                            icon: const Icon(
+                              Icons.close,
+                              size: 25,
+                              color: Colors.white,
+                            ),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/img/u1.png",
+                              width: 80,
+                              height: 80,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          const Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Manish Chutake",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                "Surat",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
+                              )
+                            ],
+                          ))
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+                child: ListView.separated(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              itemBuilder: (context, index) {
+                var obj = menuArr[index];
+
+                return MenuRow(
+                  obj: obj,
+                  onPressed: () {},
+                );
+              },
+              separatorBuilder: (context, index) => const Divider(
+                color: Colors.black12,
+                height: 1,
+              ),
+              itemCount: menuArr.length,
+            ))
+          ],
+        ),
+      ),
       appBar: AppBar(
         centerTitle: false,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            scaffoldStateKey.currentState?.openDrawer();
+          },
           icon: const Icon(
             Icons.menu,
             size: 35,
