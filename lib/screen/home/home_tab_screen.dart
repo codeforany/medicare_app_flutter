@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:medicare/common/color_extension.dart';
 import 'package:medicare/common_widget/category_button.dart';
 import 'package:medicare/common_widget/section_row.dart';
+import 'package:medicare/screen/home/category_filter_screen.dart';
 import 'package:medicare/screen/home/doctor_cell.dart';
 import 'package:medicare/screen/home/shop_cell.dart';
 
@@ -82,7 +82,9 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                   var obj = categoryArr[index];
 
                   return CategoryButton(
-                      title: obj["title"], icon: obj["img"], onPressed: () {});
+                      title: obj["title"], icon: obj["img"], onPressed: () {
+                        context.push(const CategoryFilterScreen());
+                      });
                 },
                 separatorBuilder: (context, index) => const SizedBox(
                   width: 25,
@@ -90,7 +92,7 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                 itemCount: categoryArr.length,
               ),
             ),
-            Container(
+            SizedBox(
               // color: Colors.red,
               height: context.width * 0.5,
               child: ListView.separated(
@@ -99,22 +101,27 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   itemBuilder: (context, index) {
                     var obj = adsArr[index];
-                    return Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: const [
-                            BoxShadow(color: Colors.black12, blurRadius: 1)
-                          ]),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                        child: Image.asset(
-                          obj["img"],
-                          width: context.width * 0.85,
-                          height: context.width * 0.425,
-                          fit: BoxFit.cover,
+                    return InkWell(
+                      onTap: (){
+                          
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: const [
+                              BoxShadow(color: Colors.black12, blurRadius: 1)
+                            ]),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(
+                            10,
+                          ),
+                          child: Image.asset(
+                            obj["img"],
+                            width: context.width * 0.85,
+                            height: context.width * 0.425,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     );
