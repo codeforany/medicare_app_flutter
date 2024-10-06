@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/home/doctor_profile_screen.dart';
 import 'package:medicare/screen/home/doctor_row.dart';
 
 class DoctorsListScreen extends StatefulWidget {
@@ -54,7 +55,11 @@ class _DoctorsListScreenState extends State<DoctorsListScreen> {
                 horizontal: 20,
               ),
               itemBuilder: (context, index) {
-                return const DoctorRow();
+                return  DoctorRow(
+                  onPressed: (){
+                    context.push( const DoctorProfileScreen() );
+                  },
+                );
               },
               separatorBuilder: (context, index) => const Padding(
                 padding: EdgeInsets.symmetric(vertical: 15),
