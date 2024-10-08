@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TColor {
   static Color get primary => const Color(0xff5976EF);
@@ -50,4 +51,12 @@ extension AppContext on BuildContext {
   void pop() async {
     return Navigator.pop(this);
   }
+}
+
+extension DateTimeExtension on DateTime {
+
+  String get date{
+    return DateFormat('yyyy/MM/dd').format(this);
+  }
+
 }

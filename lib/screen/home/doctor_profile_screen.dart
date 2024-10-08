@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/home/appointment_booking_screen.dart';
+import 'package:medicare/screen/home/doctor_row.dart';
 
 class DoctorProfileScreen extends StatefulWidget {
   const DoctorProfileScreen({super.key});
@@ -177,7 +179,6 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: context.width * 0.18,
                         child: ListView.separated(
@@ -226,9 +227,338 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                
               ],
             ),
+            Container(
+              width: double.maxFinite,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(color: Colors.black12, blurRadius: 10)
+                  ]),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                " Timings",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "Temporary closed",
+                              style: TextStyle(
+                                color: Color(0xffDE8D8D),
+                                fontSize: 10,
+                              ),
+                            ),
+                            Text(
+                              " | ",
+                              style: TextStyle(
+                                fontSize: 10,
+                              ),
+                            ),
+                            Text(
+                              "Open ✓",
+                              style: TextStyle(
+                                color: Color(0xff3BB94F),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          "Mon-FRI ( 11:00am- 05:00pm)",
+                          style: TextStyle(
+                            color: TColor.unselect,
+                            fontSize: 12,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          "Services and Facility",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Cardiac Rehabilitisation",
+                          style: TextStyle(
+                            color: TColor.unselect,
+                            fontSize: 12,
+                          ),
+                        ),
+                        Text(
+                          "Cardiac Surgery",
+                          style: TextStyle(
+                            color: TColor.unselect,
+                            fontSize: 12,
+                          ),
+                        ),
+                        Text(
+                          "Cardiac Intensive care",
+                          style: TextStyle(
+                            color: TColor.unselect,
+                            fontSize: 12,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            "See All",
+                            style: TextStyle(
+                              color: TColor.primary,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    color: Colors.black26,
+                    height: 1,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Experience",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        ListView.separated(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          itemBuilder: (context, index) {
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 6,
+                                  height: 6,
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                      color: TColor.primary,
+                                      borderRadius: BorderRadius.circular(3)),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    "The Dr. Manish Chutake has a cumulative years of Experience of 4000  heart surgeries.",
+                                    style: TextStyle(
+                                      color: TColor.unselect,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                          separatorBuilder: (context, index) => const SizedBox(
+                            height: 8,
+                          ),
+                          itemCount: 3,
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    color: Colors.black26,
+                    height: 1,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Feedback",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          "The service of the Dr. Manish Chutake and staff is Good.",
+                          style: TextStyle(
+                            color: TColor.unselect,
+                            fontSize: 12,
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          margin: const EdgeInsets.symmetric(vertical: 8),
+                          decoration: BoxDecoration(
+                              color: const Color(0xffEDEDED),
+                              borderRadius: BorderRadius.circular(25)),
+                          child: Row(
+                            children: [
+                              const Expanded(
+                                child: Text(
+                                  "Give Feedback",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  onTap: () {
+                                    context.push(const AppointmentBookingScreen());
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                        color: TColor.primary,
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
+                                    alignment: Alignment.center,
+                                    child: const Text(
+                                      "Book",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    color: Colors.black26,
+                    height: 1,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Address",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Text(
+                            "Plot No. 123, Behind Somalwada Highschool,Shankar Nagar,Nagpur",
+                            style: TextStyle(
+                              color: TColor.unselect,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              size: 22,
+                              color: TColor.primary,
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            const Expanded(
+                              child: Text(
+                                "+91 987654321",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    color: Colors.black26,
+                    height: 1,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Other Staff",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        ListView.separated(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          itemBuilder: (context, index) {
+                            return DoctorRow(onPressed: () {});
+                          },
+                          separatorBuilder: (context, index) => const SizedBox(
+                            height: 8,
+                          ),
+                          itemCount: 3,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

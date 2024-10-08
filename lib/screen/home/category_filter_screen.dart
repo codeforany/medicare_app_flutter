@@ -1,3 +1,4 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
 import 'package:medicare/screen/home/doctors_list_screen.dart';
@@ -10,6 +11,7 @@ class CategoryFilterScreen extends StatefulWidget {
 }
 
 class _CategoryFilterScreenState extends State<CategoryFilterScreen> {
+  DateTime? selectDate;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,36 +96,71 @@ class _CategoryFilterScreenState extends State<CategoryFilterScreen> {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: const [
-                  BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 5,
-                      offset: Offset(0, 3))
-                ]),
-            child: TextField(
-              decoration: InputDecoration(
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                hintText: "Select Date",
-                hintStyle: TextStyle(color: TColor.secondaryText, fontSize: 14),
-                prefixIcon: Icon(
-                  Icons.date_range,
-                  color: TColor.secondaryText,
+          InkWell(
+            onTap: () async {
+              var results = await showCalendarDatePicker2Dialog(
+                context: context,
+                config: CalendarDatePicker2WithActionButtonsConfig(
+                  firstDayOfWeek: 1,
+                  calendarType: CalendarDatePicker2Type.single,
+                  selectedDayTextStyle: const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w700),
+                  selectedDayHighlightColor: TColor.primary,
+                  centerAlignModePicker: true,
+                  customModePickerIcon: const SizedBox(),
                 ),
-              ),
-            ),
+                dialogSize: const Size(325, 400),
+                value: [],
+                borderRadius: BorderRadius.circular(15),
+              );
+
+              if (results != null) {
+                setState(() {
+                  selectDate = results.first;
+                });
+              }
+            },
+            child: Container(
+                margin:
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                height: 50,
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 5,
+                          offset: Offset(0, 3))
+                    ]),
+                alignment: Alignment.center,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.date_range,
+                      color: TColor.secondaryText,
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      selectDate?.date ?? "Select Date",
+                      style: TextStyle(
+                        color: selectDate == null
+                            ? TColor.secondaryText
+                            : TColor.primaryText,
+                      ),
+                    ),
+                  ],
+                )),
           ),
           const SizedBox(
             height: 40,
           ),
           InkWell(
-            onTap: (){
-              context.push( const DoctorsListScreen() );
+            onTap: () {
+              context.push(const DoctorsListScreen());
             },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),

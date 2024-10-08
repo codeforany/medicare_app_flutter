@@ -38,6 +38,8 @@ dependencies:
   fl_country_code_picker: ^0.1.9+1
   flutter_otp_text_field: ^1.2.0
   flutter_rating_stars: ^1.1.0
+  calendar_date_picker2: ^1.1.7
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
