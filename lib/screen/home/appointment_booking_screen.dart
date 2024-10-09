@@ -1,6 +1,7 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/home/make_payment_screen.dart';
 
 class AppointmentBookingScreen extends StatefulWidget {
   const AppointmentBookingScreen({super.key});
@@ -213,7 +214,9 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
           ),
           
           InkWell(
-            onTap: () {},
+            onTap: () {
+              context.push(const MakePaymentScreen());
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               width: double.maxFinite,
