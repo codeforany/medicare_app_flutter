@@ -1,6 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare/common/color_extension.dart';
+import 'package:medicare/screen/home/add_card_screen.dart';
 
 class MakePaymentScreen extends StatefulWidget {
   const MakePaymentScreen({super.key});
@@ -168,7 +169,9 @@ class _MakePaymentScreenState extends State<MakePaymentScreen> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.push(const AddCardScreen());
+                    },
                     child: Text(
                       "Add NEW CARD",
                       style: TextStyle(
