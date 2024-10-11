@@ -3,6 +3,7 @@ import 'package:medicare/common/color_extension.dart';
 import 'package:medicare/common_widget/category_button.dart';
 import 'package:medicare/common_widget/section_row.dart';
 import 'package:medicare/screen/home/category_filter_screen.dart';
+import 'package:medicare/screen/home/chat/chat_message_screen.dart';
 import 'package:medicare/screen/home/doctor_cell.dart';
 import 'package:medicare/screen/home/shop_cell.dart';
 
@@ -140,7 +141,7 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return DoctorCell(obj: nearDoctorArr[index] , onPressed: (){
-
+                        context.push( const ChatMessageScreen() );
                     });
                   },
                   separatorBuilder: (context, index) => const SizedBox(
