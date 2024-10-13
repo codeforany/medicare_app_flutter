@@ -6,6 +6,7 @@ import 'package:medicare/screen/home/category_filter_screen.dart';
 import 'package:medicare/screen/home/chat/chat_message_screen.dart';
 import 'package:medicare/screen/home/doctor_cell.dart';
 import 'package:medicare/screen/home/medical_shop/medical_shop_list_screen.dart';
+import 'package:medicare/screen/home/medical_shop/medical_shop_profile_screen.dart';
 import 'package:medicare/screen/home/shop_cell.dart';
 
 class HomeTabScreen extends StatefulWidget {
@@ -161,7 +162,9 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return ShopCell(
-                        obj: nearShopArr[index], onPressed: () {});
+                        obj: nearShopArr[index], onPressed: () {
+                          context.push(const MedicalShopProfileScreen());
+                        });
                   },
                   separatorBuilder: (context, index) => const SizedBox(
                         width: 20,
