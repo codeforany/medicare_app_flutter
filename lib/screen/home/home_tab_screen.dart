@@ -7,6 +7,7 @@ import 'package:medicare/screen/home/chat/chat_message_screen.dart';
 import 'package:medicare/screen/home/doctor_cell.dart';
 import 'package:medicare/screen/home/medical_shop/medical_shop_list_screen.dart';
 import 'package:medicare/screen/home/medical_shop/medical_shop_profile_screen.dart';
+import 'package:medicare/screen/home/only_docter_profile_screen.dart';
 import 'package:medicare/screen/home/shop_cell.dart';
 
 class HomeTabScreen extends StatefulWidget {
@@ -143,7 +144,7 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return DoctorCell(obj: nearDoctorArr[index] , onPressed: (){
-                        context.push( const ChatMessageScreen() );
+                        context.push( const OnlyDoctorProfileScreen() );
                     });
                   },
                   separatorBuilder: (context, index) => const SizedBox(
